@@ -15,6 +15,9 @@ class ProductRepository
         $newProduct->description = $product['description'];
         $newProduct->price = $product['price'];
         $newProduct->save();
+
+        $categories = $product['categories'] ?? [];
+        $newProduct->categories()->attach($categories);
     }
 
     public function deleteByName($name)
