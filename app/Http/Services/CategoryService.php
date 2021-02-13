@@ -13,4 +13,14 @@ class CategoryService
     {
         $this->categoryRepository = $categoryRepository;
     }
+
+    public function create($category)
+    {
+        $this->categoryRepository->create($category);
+    }
+
+    public function deleteByName($name)
+    {
+        return $this->categoryRepository->deleteByName($name);
+    }
 }
