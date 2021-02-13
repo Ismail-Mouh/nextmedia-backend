@@ -27,7 +27,7 @@ class ProductRepository
 
     public function all()
     {
-        return Product::latest()->get([
+        return Product::latest()->with('categories')->get([
             'id',
             'name',
             'description',
