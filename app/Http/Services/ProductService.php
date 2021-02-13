@@ -13,4 +13,9 @@ class ProductService
     {
         $this->productRepository = $productRepository;
     }
+
+    public function create($product)
+    {
+        $this->productRepository->create($product);
+    }
 }
