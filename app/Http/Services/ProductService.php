@@ -23,4 +23,9 @@ class ProductService
     {
         return $this->productRepository->deleteByName($name);
     }
+
+    public function all()
+    {
+        return $this->productRepository->all();
+    }
 }

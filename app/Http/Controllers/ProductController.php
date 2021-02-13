@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Services\ProductService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,5 +13,15 @@ class ProductController extends Controller
     public function __construct(ProductService $productService)
     {
         $this->productService = $productService;
+    }
+
+    public function index()
+    {
+        return $this->productService->all();
+    }
+
+    public function store(StoreProductRequest $request)
+    {
+        $this->productService->create($request);
     }
 }

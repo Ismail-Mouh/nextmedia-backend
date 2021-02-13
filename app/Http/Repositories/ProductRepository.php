@@ -21,4 +21,15 @@ class ProductRepository
     {
         return Product::whereName($name)->delete();
     }
+
+    public function all()
+    {
+        return Product::latest()->get([
+            'id',
+            'name',
+            'description',
+            'price',
+            'image',
+        ]);
+    }
 }
