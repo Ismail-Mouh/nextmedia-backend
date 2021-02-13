@@ -18,4 +18,9 @@ class ProductService
     {
         $this->productRepository->create($product);
     }
+
+    public function deleteByName($name)
+    {
+        return $this->productRepository->deleteByName($name);
+    }
 }

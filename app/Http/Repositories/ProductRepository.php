@@ -16,4 +16,9 @@ class ProductRepository
         $newProduct->price = $product['price'];
         $newProduct->save();
     }
+
+    public function deleteByName($name)
+    {
+        return Product::whereName($name)->delete();
+    }
 }

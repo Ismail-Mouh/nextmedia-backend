@@ -5,24 +5,23 @@ namespace App\Console\Commands\products;
 use App\Console\Commands\CustomCommand;
 use App\Http\Services\ProductService;
 
-class CreateProduct extends CustomCommand
+class DeleteProduct extends CustomCommand
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'product:create';
+    protected $signature = 'product:delete';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Product creation command';
+    protected $description = 'Product deletion command';
 
     private $productService;
-
 
     /**
      * Create a new command instance.
@@ -42,17 +41,12 @@ class CreateProduct extends CustomCommand
      */
     public function handle()
     {
-        $product['name'] = $this->recursiveAsk("Product Name ?");
-        $product['description'] = $this->ask("Product Description ?");
-        $product['price'] = $this->recursiveAsk("Product Price ?");
-
+        $name = $this->recursiveAsk("Name of the product ?");
         try {
-            $this->productService->create($product);
-            $this->info("Product created successfully");
+            $count = $this->productService->deleteByName($name);
+            $this->info($count . ' Product(s) deleted');
         } catch (\Exception $e) {
-            $this->error("Product creation failed");
+            $this->error("Product deletion failed");
         }
-
     }
-
 }
