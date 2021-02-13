@@ -18,4 +18,12 @@ class CategoryRepository
     {
         return Category::whereName($name)->delete();
     }
+
+    public function all()
+    {
+        return Category::get([
+            'id',
+            'name',
+        ]);
+    }
 }

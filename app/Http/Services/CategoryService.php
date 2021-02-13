@@ -23,4 +23,9 @@ class CategoryService
     {
         return $this->categoryRepository->deleteByName($name);
     }
+
+    public function all()
+    {
+        return $this->categoryRepository->all();
+    }
 }
