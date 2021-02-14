@@ -14,6 +14,7 @@ class ProductRepository
         $newProduct->name = $product['name'];
         $newProduct->description = $product['description'];
         $newProduct->price = $product['price'];
+        $newProduct->image = $product['image'] ?? null;
         $newProduct->save();
 
         $categories = $product['categories'] ?? [];

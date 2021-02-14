@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 
+use App\Helpers\ImageHelper;
 use App\Http\Repositories\ProductRepository;
 
 class ProductService
@@ -16,6 +17,7 @@ class ProductService
 
     public function create($product)
     {
+        $product['image'] = ImageHelper::imageDecode($product['image'],'products');
         $this->productRepository->create($product);
     }
 
