@@ -3,7 +3,7 @@
 namespace App\Http\Services;
 
 use App\Helpers\ImageHelper;
-use App\Http\Repositories\ProductRepository;
+use App\Repositories\ProductRepository;
 
 class ProductService
 {

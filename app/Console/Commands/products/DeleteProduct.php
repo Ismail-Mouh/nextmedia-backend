@@ -3,7 +3,7 @@
 namespace App\Console\Commands\products;
 
 use App\Console\Commands\CustomCommand;
-use App\Http\Services\ProductService;
+use App\Services\ProductService;
 
 class DeleteProduct extends CustomCommand
 {

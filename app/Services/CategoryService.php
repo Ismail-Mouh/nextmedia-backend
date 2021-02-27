@@ -2,7 +2,7 @@
 
 namespace App\Http\Services;
 
-use App\Http\Repositories\CategoryRepository;
+use App\Repositories\CategoryRepository;
 
 class CategoryService
 {

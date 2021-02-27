@@ -3,7 +3,7 @@
 namespace App\Console\Commands\categories;
 
 use App\Console\Commands\CustomCommand;
-use App\Http\Services\CategoryService;
+use App\Services\CategoryService;
 
 class DeleteCategory extends CustomCommand
 {
