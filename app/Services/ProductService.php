@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Services;
+namespace App\Services;
 
 use App\Helpers\ImageHelper;
+use App\Models\Product;
 use App\Repositories\ProductRepository;
 
 class ProductService
@@ -14,13 +15,13 @@ class ProductService
         $this->productRepository = $productRepository;
     }
 
-    public function create($product)
+    public function create(Product $product)
     {
         $product['image'] = ImageHelper::imageDecode($product['image'], 'products');
         $this->productRepository->create($product);
     }
 
-    public function deleteByName($name)
+    public function deleteByName(string $name)
     {
         return $this->productRepository->deleteByName($name);
     }

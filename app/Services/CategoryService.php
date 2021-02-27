@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Services;
+namespace App\Services;
 
+use App\Models\Category;
 use App\Repositories\CategoryRepository;
 
 class CategoryService
@@ -13,12 +14,12 @@ class CategoryService
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function create($category)
+    public function create(Category $category)
     {
         $this->categoryRepository->create($category);
     }
 
-    public function deleteByName($name)
+    public function deleteByName(string $name)
     {
         return $this->categoryRepository->deleteByName($name);
     }

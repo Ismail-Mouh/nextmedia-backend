@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Repositories;
+namespace App\Repositories;
 
 use App\Models\Category;
 
 class CategoryRepository
 {
-    public function create($category)
+    public function create(Category $category)
     {
         $newCategory = new Category();
         $newCategory->name = $category['name'];
         $newCategory->save();
     }
 
-    public function deleteByName($name)
+    public function deleteByName(string $name)
     {
         return Category::whereName($name)->delete();
     }

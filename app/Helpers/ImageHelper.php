@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 class ImageHelper
 {
 
-    public static function imageDecode($image, $folderName)
+    public static function imageDecode(string $image, string $folderName)
     {
         if (!$image)
             return;
@@ -33,18 +33,18 @@ class ImageHelper
         }
     }
 
-    private static function getExtensionFile($content)
+    private static function getExtensionFile(string $content)
     {
         $ext = explode(';', explode("/", $content)[1]);
         return $ext[0] ?? null;
     }
 
-    private static function generateRandomFileName($ext)
+    private static function generateRandomFileName(string $ext)
     {
         return rand() . time() . "." . $ext;
     }
 
-    private static function createImageFolderIfNotExists($folderName)
+    private static function createImageFolderIfNotExists(string $folderName)
     {
         $imagesFolder = public_path() . "/images/$folderName";
         if (!File::isDirectory($imagesFolder))

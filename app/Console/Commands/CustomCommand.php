@@ -40,7 +40,7 @@ class CustomCommand extends Command
         //
     }
 
-    public function recursiveAsk($question)
+    public function recursiveAsk(string $question)
     {
         $output = $this->ask($question);
         if (!$output) {
