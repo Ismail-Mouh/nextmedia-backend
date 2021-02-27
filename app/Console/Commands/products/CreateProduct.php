@@ -52,7 +52,5 @@ class CreateProduct extends CustomCommand
         } catch (\Exception $e) {
             $this->error("Product creation failed");
         }
-
     }
-
 }

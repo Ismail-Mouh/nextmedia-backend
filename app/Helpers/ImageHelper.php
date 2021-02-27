@@ -2,22 +2,23 @@
 
 namespace App\Helpers;
 
-
-
 use Illuminate\Support\Facades\File;
 
 class ImageHelper
 {
 
-    public static function imageDecode($image,$folderName)
+    public static function imageDecode($image, $folderName)
     {
-        if (!$image) return;
+        if (!$image)
+            return;
 
         $exploded = explode(",", $image);
-        if (!$exploded[0] || !$exploded[1]) return;
+        if (!$exploded[0] || !$exploded[1])
+            return;
 
         $ext = self::getExtensionFile($exploded[0]);
-        if (!$ext) return;
+        if (!$ext)
+            return;
 
         $decode = base64_decode($exploded[1]);
 
@@ -34,7 +35,7 @@ class ImageHelper
 
     private static function getExtensionFile($content)
     {
-        $ext = explode(';',explode("/", $content)[1]);
+        $ext = explode(';', explode("/", $content)[1]);
         return $ext[0] ?? null;
     }
 
@@ -45,7 +46,8 @@ class ImageHelper
 
     private static function createImageFolderIfNotExists($folderName)
     {
-        $imagesFolder = public_path(). "/images/$folderName";
-        if (!File::isDirectory($imagesFolder)) File::makeDirectory($imagesFolder , 0777, true, true);
+        $imagesFolder = public_path() . "/images/$folderName";
+        if (!File::isDirectory($imagesFolder))
+            File::makeDirectory($imagesFolder, 0777, true, true);
     }
 }

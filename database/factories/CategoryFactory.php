@@ -21,4 +21,3 @@ $factory->define(Category::class, function (Faker $faker) {
         'name' => $faker->unique()->randomElement(['Phone','Laptop','Headphone','USB','Keyboard'])
     ];
 });
-
