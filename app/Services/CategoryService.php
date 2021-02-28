@@ -14,7 +14,7 @@ class CategoryService
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function create(Category $category)
+    public function create($category)
     {
         $this->categoryRepository->create($category);
     }

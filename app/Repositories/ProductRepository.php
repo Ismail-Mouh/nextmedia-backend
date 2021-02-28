@@ -20,7 +20,7 @@ class ProductRepository
         $newProduct->categories()->attach($categories);
     }
 
-    public function deleteByName($name)
+    public function deleteByName(string $name)
     {
         return Product::whereName($name)->delete();
     }

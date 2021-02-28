@@ -15,7 +15,7 @@ class ProductService
         $this->productRepository = $productRepository;
     }
 
-    public function create(Product $product)
+    public function create($product)
     {
         $product['image'] = ImageHelper::imageDecode($product['image'], 'products');
         $this->productRepository->create($product);

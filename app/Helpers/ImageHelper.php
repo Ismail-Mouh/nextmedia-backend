@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ImageHelper
 {
@@ -24,13 +24,10 @@ class ImageHelper
 
         $filename = self::generateRandomFileName($ext);
 
-        self::createImageFolderIfNotExists($folderName);
+        $path = "public/" . $folderName ."/" . $filename;
 
-        $path = "images/$folderName/" . $filename;
-
-        if (file_put_contents($path, $decode)) {
-            return $path;
-        }
+        if (Storage::put($path, $decode))
+            return substr(Storage::url($path) , 1);
     }
 
     private static function getExtensionFile(string $content)
@@ -42,12 +39,5 @@ class ImageHelper
     private static function generateRandomFileName(string $ext)
     {
         return rand() . time() . "." . $ext;
-    }
-
-    private static function createImageFolderIfNotExists(string $folderName)
-    {
-        $imagesFolder = public_path() . "/images/$folderName";
-        if (!File::isDirectory($imagesFolder))
-            File::makeDirectory($imagesFolder, 0777, true, true);
     }
 }
