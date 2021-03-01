@@ -3,21 +3,22 @@
 namespace App\Services;
 
 use App\Helpers\ImageHelper;
-use App\Models\Product;
-use App\Repositories\ProductRepository;
+use App\Repositories\IProductRepository;
+use App\Services\IProductService;
 
-class ProductService
+class ProductService implements IProductService
 {
     private $productRepository;
 
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(IProductRepository $productRepository)
     {
         $this->productRepository = $productRepository;
     }
 
     public function create($product)
     {
-        $product['image'] = ImageHelper::imageDecode($product['image'], 'products');
+        if (isset($product['image']))
+            $product['image'] = ImageHelper::imageDecode($product['image'], 'products');
         $this->productRepository->create($product);
     }
 

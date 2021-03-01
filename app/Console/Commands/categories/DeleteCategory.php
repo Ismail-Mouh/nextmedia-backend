@@ -3,7 +3,7 @@
 namespace App\Console\Commands\categories;
 
 use App\Console\Commands\CustomCommand;
-use App\Services\CategoryService;
+use App\Services\ICategoryService;
 
 class DeleteCategory extends CustomCommand
 {
@@ -26,9 +26,9 @@ class DeleteCategory extends CustomCommand
     /**
      * Create a new command instance.
      *
-     * @param CategoryService $categoryService
+     * @param ICategoryService $categoryService
      */
-    public function __construct(CategoryService $categoryService)
+    public function __construct(ICategoryService $categoryService)
     {
         parent::__construct();
         $this->categoryService = $categoryService;

@@ -3,7 +3,7 @@
 namespace App\Console\Commands\products;
 
 use App\Console\Commands\CustomCommand;
-use App\Services\ProductService;
+use App\Services\IProductService;
 
 class CreateProduct extends CustomCommand
 {
@@ -27,9 +27,9 @@ class CreateProduct extends CustomCommand
     /**
      * Create a new command instance.
      *
-     * @param ProductService $productService
+     * @param IProductService $productService
      */
-    public function __construct(ProductService $productService)
+    public function __construct(IProductService $productService)
     {
         parent::__construct();
         $this->productService = $productService;
@@ -46,11 +46,8 @@ class CreateProduct extends CustomCommand
         $product['description'] = $this->ask("Product Description ?");
         $product['price'] = $this->recursiveAsk("Product Price ?");
 
-        try {
+
             $this->productService->create($product);
             $this->info("Product created successfully");
-        } catch (\Exception $e) {
-            $this->error("Product creation failed");
-        }
     }
 }

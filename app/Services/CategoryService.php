@@ -2,14 +2,14 @@
 
 namespace App\Services;
 
-use App\Models\Category;
-use App\Repositories\CategoryRepository;
+use App\Repositories\ICategoryRepository;
+use App\Services\ICategoryService;
 
-class CategoryService
+class CategoryService implements ICategoryService
 {
     private $categoryRepository;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(ICategoryRepository $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
     }

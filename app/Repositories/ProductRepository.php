@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Product;
 
-class ProductRepository
+class ProductRepository implements  IProductRepository
 {
 
     public function create($product)

@@ -3,7 +3,7 @@
 namespace App\Console\Commands\products;
 
 use App\Console\Commands\CustomCommand;
-use App\Services\ProductService;
+use App\Services\IProductService;
 
 class DeleteProduct extends CustomCommand
 {
@@ -26,9 +26,9 @@ class DeleteProduct extends CustomCommand
     /**
      * Create a new command instance.
      *
-     * @param ProductService $productService
+     * @param IProductService $productService
      */
-    public function __construct(ProductService $productService)
+    public function __construct(IProductService $productService)
     {
         parent::__construct();
         $this->productService = $productService;

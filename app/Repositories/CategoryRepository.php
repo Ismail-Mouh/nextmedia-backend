@@ -3,8 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Category;
+use App\Repositories\ICategoryRepository;
 
-class CategoryRepository
+class CategoryRepository implements ICategoryRepository
 {
     public function create($category)
     {
